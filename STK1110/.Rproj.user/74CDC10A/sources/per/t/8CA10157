@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1538652697719.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2395139032",
+    "id" : "8CA10157",
+    "lastKnownWriteTime" : 1538584311,
+    "last_content_update" : 1538584311,
+    "path" : "D:/oneDrive/OneDrive - Universitetet i Oslo/UIO/STK1110/Oblig1/oppg2_min.R",
+    "project_path" : "Oblig1/oppg2_min.R",
+    "properties" : {
+        "cursorPosition" : "59,1",
+        "scrollLine" : "0",
+        "source_window_id" : ""
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
