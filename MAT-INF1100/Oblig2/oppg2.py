@@ -11,7 +11,7 @@ def lin_pendel_euler(v0, theta0, g, L, N, h):
     return v, theta
 
 
-g, L, v0, theta0, T, N = 9.81, 1, 0, np.pi/2, 4, 2**20
+g, L, v0, theta0, T, N = 9.81, 1, 0, np.pi/2, 4, 2**5
 h = T/N
 
 v, theta = lin_pendel_euler(v0, theta0, g, L, N, h)
@@ -20,5 +20,6 @@ v, theta = lin_pendel_euler(v0, theta0, g, L, N, h)
 for i, j in zip(v, theta):
     print(i,j)
 '''
-plt.plot(theta, v)
+t = list(range(len(v)))
+plt.plot(t,v)
 plt.show()
