@@ -44,16 +44,21 @@ betaX1hat = coefficients(l.lm)[2]
 alfax1hat = coefficients(l.lm)[1]
 alfa = 0.05
 n = length(y)
-s= sqrt((sum(y**2-alfaX1hat)*sum(y-betaX1hat)*sum(x1*y))/(n-2))
+#s= sqrt((sum(y**2-alfax1hat)*sum(y-betaX1hat)*sum(x1*y))/(n-2))
+s = sqrt(sum((y-mean(y))**2)/(n-2))
 Sxx = sum((x1-x_bar[1])**2)
 sb = s/sqrt(Sxx)
-b1CI = b1_hat+ c(1,-1)*qt(alfa/2, n-2) * sb
+b1CI = betaX1hat+ c(1,-1)*qt(alfa/2, n-2) * sb
 
 #intervallet virker lite og viser at variasjoen er liten i betaX1hat
-
 
 #d) 
 
 CI_Strength = y_bar + c(1,-1)*qt(alfa/2, n-2)*sd(y)/sqrt(n)
-CI_pred = y_bar + c(1,-1)*qt(alfa/2, n-2)*sqrt(s**2+sd(y)**2)
+x_star = c(210, 240, 270)
+y_hat = alfax1hat+betaX1hat*x_star
+CI_pred_pluss = y_hat +qt(alfa/2,n-2)*sqrt(s**2+sd(y)**2)
+CI_pred_minus = y_hat -qt(alfa/2,n-2)*sqrt(s**2+sd(y)**2)
+
+#prediksjons intervallet er stort siden 
 
