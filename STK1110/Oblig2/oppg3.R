@@ -26,7 +26,7 @@ qqplot(x2,y, xlab='Pressure')
 #b)Regresjon, y(x1)
 
 x_bar = c(mean(x1), mean(x2))
-y_bar = mean(y)
+y_bar = mean(y) 
 
 
 #b1_hat = sum((x1-x_bar[1])*(y-mean(y)))/sum((x1-x_bar[1])**2) s
