@@ -28,6 +28,24 @@ qqplot(x2,y, xlab='Pressure')
 x_bar = c(mean(x1), mean(x2))
 y_bar = mean(y)
 
-b1 = sum((x1-x_bar[1])*(y-mean(y)))
-b2 = sum((x2-x_bar[2])*(y-mean(y)))
+
+#b1_hat = sum((x1-x_bar[1])*(y-mean(y)))/sum((x1-x_bar[1])**2) s
+#a1_hat = y_bar-b1_hat*x_bar[1]
+
+#b2 = sum((x2-x_bar[2])*(y-mean(y)))/ sum((x-x_bar[1])**2)
+
+l.lm = lm(y~x1)
+plot(x1, y, xlab='Temp',ylab='Strength')
+abline(l.lm)
+# ser tilsynelatende ut til å ha en korrelasjon
+
+#c)
+alfa = 0.05
+n = length(y)
+sb = sd(y)
+Sxx = sd(x1)
+b1CI = 
+
+
+
 
