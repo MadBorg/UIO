@@ -40,11 +40,15 @@ abline(l.lm)
 # ser tilsynelatende ut til å ha en korrelasjon
 
 #c)
+betaX1hat = coefficients(l.lm)[2]
+alfax1hat = coefficients(l.lm)[1]
 alfa = 0.05
 n = length(y)
-sb = sd(y)
-Sxx = sd(x1)
-b1CI = 
+s= sqrt((sum(y**2-alfaX1hat)*sum(y-betaX1hat)*sum(x1*y))/(n-2))
+Sxx = sum((x1-x_bar[1])**2)
+sb = s/sqrt(Sxx)
+b1CI = b1_hat+ c(1,-1)*qt(alfa/2, n-2) * sb
+
 
 
 
