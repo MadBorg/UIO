@@ -49,7 +49,9 @@ Sxx = sum((x1-x_bar[1])**2)
 sb = s/sqrt(Sxx)
 b1CI = b1_hat+ c(1,-1)*qt(alfa/2, n-2) * sb
 
+#intervallet virker lite og viser at variasjoen er liten i betaX1hat
 
 
+#d) 
 
-
+y_bar + c(1,-1)*qt(alfa/2, n-1)*sd(y)/sqrt(n)
