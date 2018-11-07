@@ -61,8 +61,9 @@ CI_pred_pluss = y_hat +qt(alfa/2,n-2)*sqrt(s**2+sd(y)**2)
 CI_pred_minus = y_hat -qt(alfa/2,n-2)*sqrt(s**2+sd(y)**2)
 CI_pred_x_sar = cbind(CI_pred_pluss, CI_pred_minus)
 
-#prediksjons intervallet er stort siden   
-
+#prediksjons intervallet er betydelig større en CI_Strength siden prediksjonen basserer seg på vår estimerte regresjon
+#og CI_Strength er bassert på våre observasjoner.
+#s.659
 #f)
 
 l.lm2 = lm(y~x2)
