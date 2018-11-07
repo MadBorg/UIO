@@ -54,4 +54,7 @@ b1CI = b1_hat+ c(1,-1)*qt(alfa/2, n-2) * sb
 
 #d) 
 
-y_bar + c(1,-1)*qt(alfa/2, n-1)*sd(y)/sqrt(n)
+CI_Strength = y_bar + c(1,-1)*qt(alfa/2, n-2)*sd(y)/sqrt(n)
+CI_pred
+
+
