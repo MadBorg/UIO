@@ -14,4 +14,9 @@ DSE_Mean = 1.58
 
 alfa = 0.05
 
+
+t_obs = DMean/(DStDev/sqrt(DN ))
+P = 2* pt(t_obs, DN-1)
+
+#c)
 t_CI = DMean + c(1,-1)*qt(alfa/2, DN-1)*DStDev/sqrt(DN)
