@@ -45,7 +45,7 @@ alfax1hat = coefficients(l.lm)[1]
 alfa = 0.05
 n = length(y)
 #s= sqrt((sum(y**2-alfax1hat)*sum(y-betaX1hat)*sum(x1*y))/(n-2))
-s = sqrt(sum((y-mean(y))**2)/(n-2))
+s = sqrt(sum((y-mean(y))**2) /(n-2))
 Sxx = sum((x1-x_bar[1])**2)
 sb = s/sqrt(Sxx)
 b1CI = betaX1hat+ c(1,-1)*qt(alfa/2, n-2) * sb
@@ -59,6 +59,17 @@ x_star = c(210, 240, 270)
 y_hat = alfax1hat+betaX1hat*x_star
 CI_pred_pluss = y_hat +qt(alfa/2,n-2)*sqrt(s**2+sd(y)**2)
 CI_pred_minus = y_hat -qt(alfa/2,n-2)*sqrt(s**2+sd(y)**2)
+CI_pred_x_sar = cbind(CI_pred_pluss, CI_pred_minus)
 
-#prediksjons intervallet er stort siden 
+#prediksjons intervallet er stort siden   
 
+#f)
+
+l.lm2 = lm(y~x2)
+plot(x2, y, xlab='Pressure',ylab='Strength')
+abline(l.lm2)
+betaX2hat = coefficients(l.lm2)[2]
+alfax2hat = coefficients(l.lm2)[1]
+Sxx2 = sum((x2-x_bar[2])**2)
+sb2 = s/sqrt(Sxx2)
+b2CI = betaX2hat+ c(1,-1)*qt(alfa/2, n-2) * sb2
