@@ -44,16 +44,18 @@ infile.close()
 V = np.asarray(integration(t, v))
 dv = np.asarray(derivation(t, v))
 
-
+'''
 plt.subplot(311)
 plt.plot(t,v,label='v')
 plt.legend()
+'''
 
-plt.subplot(312)
+
+plt.subplot(211)
 plt.plot(t,dv,label='derivative')
 plt.legend()
 
-plt.subplot(313)
+plt.subplot(212)
 plt.plot(t, V, label='integral')
 plt.legend()
 
