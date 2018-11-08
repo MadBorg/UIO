@@ -12,7 +12,7 @@ qqline(Strength)
 #Plottet ser tilnermet normalfordelt ut.
 
 
-boxplot(Strength, ylab='Strength')
+boxplot(Strength, xlab='Strength')
 #Boxplotet viser en poseti sjevhet
 
 
