@@ -16,15 +16,15 @@ def ForwardEuler(f,U0, T, n):
 
 
 def f(u, t):
-    return u
+    return t - 2*t*u
 
 U0 = 1
 T = 4
-n = int(1e5)
+n = int(1e6)
 
 
 
 u, t = ForwardEuler(f, U0, T, n)
 
-plt.plot(t,u,t, np.exp(t))
+plt.plot(t,u,t, np.exp(-t**2) + 1/2)
 plt.show()
