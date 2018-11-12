@@ -1,6 +1,16 @@
 import ODESolver
 import numpy as np
 import matplotlib.pyplot as plt
+
+class Logistic:
+    def __init__(self, beta, nu, U0):
+        self.beta, self.nu, self.U0 = beta, nu, U0
+
+    def __call__(self, u, t):
+        beta, nu, U0 = self.beta, self.nu, self.U0
+        S, I, R = u
+        return [-beta *S*I, beta*S*I - nu*I, nu*I]
+
 dt = 0.5
 nu = 0.1
 days = 60 #for days >= 12 RuntimeWarning: overflow encountered in double_scalars; return [-beta1 *S*I, beta1*t*S*I - nu*I, nu*R]
@@ -18,24 +28,18 @@ U0 = [S0, I0, R0]
 
 
 '''
-def ds(u, t):
-    return -beta * S * I
-def di(u,t):
-    return beta* S * I - nu*I
-def dr(u,t):
-    return nu*I
+    def ds(u, t):
+        return -beta * S * I
+    def di(u,t):
+        return beta* S * I - nu*I
+    def dr(u,t):
+        return nu*I
 
-def f(u,t):
-    S,I,R = u
-    return [-beta1 *S*I, beta1*S*I - nu*I, nu*I]
+    def f(u,t):
+        S,I,R = u
+        return [-beta1 *S*I, beta1*S*I - nu*I, nu*I]
 '''
-class Logistic:
-    def __init__(self, beta, nu, U0):
-        self.beta, self.nu, self.U0 = beta, nu, U0
 
-    def __call__(self, u, t):
-        S, I, R = u
-        return [-beta *S*I, beta*S*I - nu*I, nu*I]
 c = 0 #counter
 #for b in beta:
 c += 1
