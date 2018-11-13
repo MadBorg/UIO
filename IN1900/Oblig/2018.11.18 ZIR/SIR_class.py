@@ -8,13 +8,14 @@ class ProblemSIR(object):
     import matplotlib.pyplot as plt
     import ODESolver
 
-    def __init__(self, beta, nu, S0, I0, R0, T):
+    def __init__(self, beta, nu, U0, T):
         '''
         nu, beta: parameters in the ODE system
         S0, I0, R0: initial values
         T: simulation for t in [0,T]
         '''
-        self.U0 = [S0, I0, R0]
+        self.U0 = U0
+        #self.S0, self.I0, self.R0 = S0, I0, R0
         self.T = T
 
         if isinstance(nu, (float, int)): #number?
@@ -36,7 +37,7 @@ class ProblemSIR(object):
     def __call__(self, u, t):
         beta, nu, U0 = self.beta, self.nu, self.U0
         S, I, R = u
-        return [-beta *S*I, beta*S*I - nu*I, nu*I]
+        return [-beta(t) *S*I, beta(t)*S*I - nu(t)*I, nu(t)*I]
 
     def terminate(self, u, t, step_no, tol=1e-10):
         return abs(sum(u[step_no])-sum(self.U0)) > tol
@@ -52,13 +53,15 @@ class SolverSIR(object):
     def solve(self, method=ODESolver.RungeKutta4):
         self.solver = method(self.problem)
         ic = self.problem.U0
+        #ic = [self.problem.S0, self.problem.I0, self.problem.R0]
+        self.solver.set_initial_condition(ic)
         n = int(round(self.problem.T/float(self.dt)))
         t = np.linspace(0, self.problem.T, n+1)
         u, self.t = self.solver.solve(t)
         self.S, self.I, self.R = u[:,0], u[:,1], u[:,2]
 
-    def plot(self, title=None, xlabel=None, yabel=None):
-        S,I,R = self.u
+    def plot(self, title=None, xlabel=None, ylabel=None):
+        S,I,R = self.S, self.I, self.R
         t = self.t
         plt.gca().set_title(title)
         plt.plot(t, S, 'k-', t, I, 'b-', t, R, 'r-')
@@ -76,10 +79,21 @@ beta2 = 0.0005
 
 dt = 0.1
 nu = 0.1
-S0, I0, R0 = 1500, 1, 0
+U0 = [S0, I0, R0] = [1500, 1, 0]
 T = 60 #days
-problemb1 = ProblemSIR(beta, nu, S0, I0, R0, T)
+
+
+plt.subplot(1,2,1)
+problemb1 = ProblemSIR(beta, nu, U0, T)
 solverb1 = SolverSIR(problemb1,dt)
-print(solverb1.solve())
-#problemb2 = ProblemSIR(beta2, nu, S0, I0, R0, T)
-#solverb2 = SolverSIR(problemb2,dt)
+solverb1.solve()
+solverb1.plot(title='beta(t)')
+
+
+plt.subplot(1,2,2)
+problemb2 = ProblemSIR(beta2, nu, U0, T)
+solverb2 = SolverSIR(problemb2,dt)
+solverb2.solve()
+solverb2.plot(title='beta2')
+
+plt.show()
