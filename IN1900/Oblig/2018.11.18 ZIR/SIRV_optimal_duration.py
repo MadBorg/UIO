@@ -22,5 +22,5 @@ if __name__ == "__main__":
     plt.show()
 
 '''
-Ser ut til at plottet ikke har den knekken den burde ha
+
 '''
