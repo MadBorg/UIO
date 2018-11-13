@@ -8,7 +8,7 @@ class ProblemSIR(object):
     import matplotlib.pyplot as plt
     import ODESolver
 
-    def __init__(self, beta, nu, U0, T):
+    def __init__(self, beta, nu, U0, T, tol=1e-10):
         '''
         nu, beta: parameters in the ODE system
         S0, I0, R0: initial values
@@ -32,6 +32,10 @@ class ProblemSIR(object):
         #else:
         #    print('Error in init: self.beta')
 
+    def terminate(self, u, t, step_no):
+        tol = self.tol
+        return abs(sum(u[step_no])-sum(self.U0)) > tol
+
 
 
     def __call__(self, u, t):
@@ -50,7 +54,7 @@ class SolverSIR(object):
     def __init__(self, problem, dt):
         self.problem, self.dt = problem, dt
 
-    def solve(self, method=ODESolver.RungeKutta4):
+    def solve(self, method=ODESolver.RungeKutta4,terminate=None):
         self.solver = method(self.problem)
         ic = self.problem.U0
         #ic = [self.problem.S0, self.problem.I0, self.problem.R0]
@@ -97,14 +101,14 @@ if __name__ == "__main__":
     plt.subplot(1,2,1)
     problemb1 = ProblemSIR(beta, nu, U0, T)
     solverb1 = SolverSIR(problemb1,dt)
-    solverb1.solve()
+    solverb1.solve(terminate=problemb1.terminate)
     solverb1.plot(labels=['S','I','R'], title='beta(t)', colors=['g', 'r', 'b'])
 
 
     plt.subplot(1,2,2)
     problemb2 = ProblemSIR(beta2, nu, U0, T)
     solverb2 = SolverSIR(problemb2,dt)
-    solverb2.solve()
+    solverb2.solve(terminate=problemb2.terminate)
     solverb2.plot(labels=['S','I','R'], title='beta2', colors=['g', 'r', 'b'])
 
     plt.show()

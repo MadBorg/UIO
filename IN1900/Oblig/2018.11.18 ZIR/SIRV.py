@@ -26,6 +26,11 @@ if __name__ == "__main__":
     T = 60 #days
     problem = ProblemSIRV(beta, nu, p, U0, T)
     solver = SolverSIR(problem, dt)
-    solver.solve()
+    solver.solve(terminate=problem.terminate)
     solver.plot(labels=['S', 'I', 'R', 'V'], title='SIRV', colors=['b', 'r','g','y'], xlabel='days')
     plt.show()
+
+'''
+Effekten er tydelig. I har bare et lite hopp så tar vkasinasjonen over.
+Og ikke mange rekker å bli infisert. Vaksinen er dermed svert effektiv
+'''
