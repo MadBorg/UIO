@@ -11,6 +11,6 @@ def p(t):
 if __name__ == "__main__":
     problem = ProblemSIRV(beta, nu, p, U0, T)
     solver = SolverSIR(problem, dt)
-    solver.solve(terminate=problem.terminate)
+    u ,t= solver.solve(terminate=problem.terminate)
     solver.plot(labels=['S', 'I', 'R', 'V'], title='SIRV', colors=['b', 'r','g','y'], xlabel='days')
     plt.show()

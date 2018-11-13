@@ -62,6 +62,7 @@ class SolverSIR(object):
         n = int(round(self.problem.T/float(self.dt)))
         t = np.linspace(0, self.problem.T, n+1)
         self.u, self.t = self.solver.solve(t)
+        return [self.u,self.t]
         #self.S, self.I, self.R = u[:,0], u[:,1], u[:,2]
 
     def plot(self,labels=None, title=None, xlabel=None, ylabel=None, colors=None):
