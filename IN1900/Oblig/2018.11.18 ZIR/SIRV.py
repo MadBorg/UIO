@@ -17,15 +17,15 @@ class ProblemSIRV(ProblemSIR):
         S, I, R, V = u
         return [-beta(t)*S*I - p(t)*S, beta(t)*S*I - nu(t)*I, nu(t)*I, p(t)*S]
 
-
-dt = 0.1
-nu = 0.1
-beta = 0.0005
-p = 0.1
-U0 = [S0, I0, R0, V0] = [1500, 1, 0, 0]
-T = 60 #days
-problem = ProblemSIRV(beta, nu, p, U0, T)
-solver = SolverSIR(problem, dt)
-solver.solve()
-solver.plot(labels=['S', 'I', 'R', 'V'], title='SIRV', colors=['b', 'r','g','y'], xlabel='days')
-plt.show()
+if __name__ == "__main__":
+    dt = 0.1
+    nu = 0.1
+    beta = 0.0005
+    p = 0.1
+    U0 = [S0, I0, R0, V0] = [1500, 1, 0, 0]
+    T = 60 #days
+    problem = ProblemSIRV(beta, nu, p, U0, T)
+    solver = SolverSIR(problem, dt)
+    solver.solve()
+    solver.plot(labels=['S', 'I', 'R', 'V'], title='SIRV', colors=['b', 'r','g','y'], xlabel='days')
+    plt.show()
