@@ -57,17 +57,27 @@ class SolverSIR(object):
         self.solver.set_initial_condition(ic)
         n = int(round(self.problem.T/float(self.dt)))
         t = np.linspace(0, self.problem.T, n+1)
-        u, self.t = self.solver.solve(t)
-        self.S, self.I, self.R = u[:,0], u[:,1], u[:,2]
+        self.u, self.t = self.solver.solve(t)
+        #self.S, self.I, self.R = u[:,0], u[:,1], u[:,2]
 
-    def plot(self, title=None, xlabel=None, ylabel=None):
-        S,I,R = self.S, self.I, self.R
+    def plot(self,labels=None, title=None, xlabel=None, ylabel=None, colors=None):
+        #S,I,R = self.S, self.I, self.R
+        u = self.u
         t = self.t
+        #plt.plot(t, S, 'k-', t, I, 'b-', t, R, 'r-')
+        if type(colors) is list:
+            plt.plot(t,u,colors)
+        else:
+            plt.plot(t,u)
+        if type(labels) is list:
+            plt.legend(labels, loc = 'lower right')
+        else:
+            plt.legend()
+
         plt.gca().set_title(title)
-        plt.plot(t, S, 'k-', t, I, 'b-', t, R, 'r-')
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
-        plt.legend(['S', 'I', 'R'], loc = 'lower right')
+
         #plt.show()
 
 def beta(t):
@@ -87,13 +97,13 @@ plt.subplot(1,2,1)
 problemb1 = ProblemSIR(beta, nu, U0, T)
 solverb1 = SolverSIR(problemb1,dt)
 solverb1.solve()
-solverb1.plot(title='beta(t)')
+solverb1.plot(labels=['S','I','R'], title='beta(t)', colors=['g', 'r', 'b'])
 
 
 plt.subplot(1,2,2)
 problemb2 = ProblemSIR(beta2, nu, U0, T)
 solverb2 = SolverSIR(problemb2,dt)
 solverb2.solve()
-solverb2.plot(title='beta2')
+solverb2.plot(labels=['S','I','R'], title='beta2', colors=['g', 'r', 'b'])
 
 plt.show()
