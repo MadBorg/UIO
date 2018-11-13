@@ -80,30 +80,31 @@ class SolverSIR(object):
 
         #plt.show()
 
-def beta(t):
-    if 0 <= t <= 12:
-        return 0.0005
-    if t > 12:
-        return 0.0001
-beta2 = 0.0005
+if __name__ == "__main__":
+    def beta(t):
+        if 0 <= t <= 12:
+            return 0.0005
+        if t > 12:
+            return 0.0001
+    beta2 = 0.0005
 
-dt = 0.1
-nu = 0.1
-U0 = [S0, I0, R0] = [1500, 1, 0]
-T = 60 #days
-
-
-plt.subplot(1,2,1)
-problemb1 = ProblemSIR(beta, nu, U0, T)
-solverb1 = SolverSIR(problemb1,dt)
-solverb1.solve()
-solverb1.plot(labels=['S','I','R'], title='beta(t)', colors=['g', 'r', 'b'])
+    dt = 0.1
+    nu = 0.1
+    U0 = [S0, I0, R0] = [1500, 1, 0]
+    T = 60 #days
 
 
-plt.subplot(1,2,2)
-problemb2 = ProblemSIR(beta2, nu, U0, T)
-solverb2 = SolverSIR(problemb2,dt)
-solverb2.solve()
-solverb2.plot(labels=['S','I','R'], title='beta2', colors=['g', 'r', 'b'])
+    plt.subplot(1,2,1)
+    problemb1 = ProblemSIR(beta, nu, U0, T)
+    solverb1 = SolverSIR(problemb1,dt)
+    solverb1.solve()
+    solverb1.plot(labels=['S','I','R'], title='beta(t)', colors=['g', 'r', 'b'])
 
-plt.show()
+
+    plt.subplot(1,2,2)
+    problemb2 = ProblemSIR(beta2, nu, U0, T)
+    solverb2 = SolverSIR(problemb2,dt)
+    solverb2.solve()
+    solverb2.plot(labels=['S','I','R'], title='beta2', colors=['g', 'r', 'b'])
+
+    plt.show()
