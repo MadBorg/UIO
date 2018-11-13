@@ -86,13 +86,15 @@ class SolverSIR(object):
         #plt.show()
 
 if __name__ == "__main__":
+
     def beta(t):
         if 0 <= t <= 12:
             return 0.0005
         if t > 12:
             return 0.0001
-    beta2 = 0.0005
 
+    beta2 = 0.0005
+    #beta = lambda t: 0.0005 if 0<=t<=12 else 0.0001 if t>12
     dt = 0.1
     nu = 0.1
     U0 = [S0, I0, R0] = [1500, 1, 0]
