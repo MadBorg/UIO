@@ -73,3 +73,10 @@ if __name__ == "__main__":
     solver.solve(terminate=problem.terminate)
     solver.plot(labels=['S', 'I', 'Z', 'R'], title='SIZR')
     plt.show()
+
+'''
+2018.11.18 ZIR> python .\SIZR.py
+
+plots one plott
+
+'''

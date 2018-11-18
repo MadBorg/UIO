@@ -42,4 +42,7 @@ if __name__ == "__main__":
 '''
 The plot shows that the human race persists.
 
+2018.11.18 ZIR> python .\war_on_zombies.py
+plots one plot
+
 '''

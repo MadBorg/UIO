@@ -115,3 +115,9 @@ if __name__ == "__main__":
     solverb2.plot(labels=['S','I','R'], title='beta2= 0.0005', colors=['g', 'r', 'b'])
 
     plt.show()
+
+'''
+2018.11.18 ZIR> python .\SIR_class.py
+
+#plots 2 plots named beta2 = 0.0005 and beta(t)
+'''

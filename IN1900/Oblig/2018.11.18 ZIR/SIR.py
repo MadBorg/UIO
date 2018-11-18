@@ -47,7 +47,7 @@ plt.show()
 når vi kjører med en mindre beta så stiger (-beta *S*I) den derriverte av S.
 Så da tar det legngere tid å bli infisert
 
- python.exe .\SIR.py
+2018.11.18 ZIR> python .\SIR.py
 
  #plotter 2 subplot med forksjellige betta verdier
 
