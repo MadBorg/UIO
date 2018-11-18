@@ -9,7 +9,7 @@ def maxI(VT):
     problem = ProblemSIRV(beta, nu, p, U0, T)
     solver = SolverSIR(problem, dt)
     u ,t= solver.solve(terminate=problem.terminate)
-    return max(u[:,3])
+    return max(u[:,2])
 
 
 if __name__ == "__main__":

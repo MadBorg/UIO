@@ -112,6 +112,6 @@ if __name__ == "__main__":
     problemb2 = ProblemSIR(beta2, nu, U0, T)
     solverb2 = SolverSIR(problemb2,dt)
     solverb2.solve(terminate=problemb2.terminate)
-    solverb2.plot(labels=['S','I','R'], title='beta2', colors=['g', 'r', 'b'])
+    solverb2.plot(labels=['S','I','R'], title='beta2= 0.0005', colors=['g', 'r', 'b'])
 
     plt.show()

@@ -15,6 +15,7 @@ class ProblemSIRV(ProblemSIR):
     def __call__(self, u, t):
         beta, nu, p, U0 = self.beta, self.nu,self.p, self.U0
         S, I, R, V = u
+        print(u)
         return [-beta(t)*S*I - p(t)*S, beta(t)*S*I - nu(t)*I, nu(t)*I, p(t)*S]
 
 dt = 0.1
