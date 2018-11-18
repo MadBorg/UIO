@@ -24,13 +24,13 @@ class alfaLogistic():
         return self.alfa(t) + self.omega(t, self.T_angrep)
 
     def omega(self, t, T):
-        O = self.alfa(t)
+        O = self.a
+        S = 0
         for i in range(self.m):
-            S = np.exp(-1/2 *((t-T[i])**2/self.sigma))
+            S += np.exp(-1/2 *((t-T[i])**2/self.sigma))
         return O * S
 
 if __name__ == "__main__":
-
     U0 = [S0, I0, Z0, R0] = [50, 0, 3, 0]
     alfa = alfaLogistic(alfaBase, sigma, T_angrep)
     coefs = [alfa, beta, delta_S, delta_I, rho, SIGMA]
@@ -39,3 +39,7 @@ if __name__ == "__main__":
     solver.solve(terminate=problem.terminate)
     solver.plot(labels=['S', 'I', 'Z', 'R'], title='SIZR')
     plt.show()
+'''
+The plot shows that the human race persists.
+
+'''
