@@ -36,4 +36,6 @@ Effekten er tydelig. I har bare et lite hopp så tar vkasinasjonen over.
 Og ikke mange rekker å bli infisert. Vaksinen er dermed svert effektiv
 
 2018.11.18 ZIR> python .\SIRV.py
+
+pots one plot
 '''
