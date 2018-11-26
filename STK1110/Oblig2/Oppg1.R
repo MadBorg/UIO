@@ -14,9 +14,9 @@ menns kvinners fordeling er har ingen skjevhet
 #b) Lag normalfordelingsplott for de to observasjonssettene. Kommennter hva du ser.
 limy = c(36,37.5)
 par(mfrow=c(1,2))
-qqnorm(menn, ylab='(C) temp menn', ylim=limy)
+qqnorm(menn, ylab='(C) temp menn', ylim=limy, main = "Temp men")
 qqline(menn)
-qqnorm(kvinner, ylab='(C) temp kinner', ylim=limy)
+qqnorm(kvinner, ylab='(C) temp kinner', ylim=limy, main = "Temp kvinner")
 qqline(kvinner)
 
 
