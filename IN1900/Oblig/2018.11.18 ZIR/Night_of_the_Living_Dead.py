@@ -23,7 +23,7 @@ if __name__ == "__main__":
     plt.show()
 
 '''
-2018.11.18 ZIR> python .\Night_of_the_Living_Dead.py
+2018.11.18 ZIR> python Night_of_the_Living_Dead.py
 
 #plots one plott
 '''

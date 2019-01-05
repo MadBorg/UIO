@@ -1,5 +1,6 @@
 from SIZR import *
-
+import numpy as np
+import matplotlib.pyplot as plt
 
 S0 = 50
 Z0 = 3
